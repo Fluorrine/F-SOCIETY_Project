@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Confidence Check</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header class="site-header">
     <h1 class="brand">Confidence Check</h1>
@@ -21,12 +25,9 @@
       <div class="paper-card">
         <h2>Paste your study notes</h2>
         <p class="hint">We'll generate practice questions and track where confidence meets reality.</p>
-        <textarea
-          id="notes-input"
-          rows="8"
+        <textarea id="notes-input" rows="8"
           placeholder="Paste lecture notes, textbook excerpts, or anything you're studying..."
-          aria-label="Study notes"
-        ></textarea>
+          aria-label="Study notes"></textarea>
         <div class="setup-row">
           <label for="count-input">Number of questions</label>
           <input type="number" id="count-input" min="3" max="12" value="5" aria-label="Number of questions">
@@ -51,8 +52,10 @@
           <div id="options-list" class="options-list" role="radiogroup" aria-label="Answer options"></div>
         </div>
         <div id="confidence-section" class="confidence-section">
-          <p class="confidence-label">How confident are you? <span class="confidence-hint">(before you see the answer)</span></p>
-          <div id="confidence-buttons" class="confidence-buttons" role="radiogroup" aria-label="Confidence rating"></div>
+          <p class="confidence-label">How confident are you? <span class="confidence-hint">(before you see the
+              answer)</span></p>
+          <div id="confidence-buttons" class="confidence-buttons" role="radiogroup" aria-label="Confidence rating">
+          </div>
         </div>
         <button type="button" id="submit-btn" class="btn btn-primary" disabled>Submit answer</button>
         <div id="feedback-area" class="feedback-area hidden" role="status"></div>
@@ -74,11 +77,11 @@
       </div>
     </section>
   </main>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <script src="js/api.js"></script>
   <script src="js/quiz.js"></script>
   <script src="js/results.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
