@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confidence Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="brand">Confidence Check</h1>
+    <p class="tagline">Find where you <em>think</em> you know it — but don't.</p>
+  </header>
+
+  <main class="app-main">
+    <!-- Setup screen -->
+    <section id="setup-screen" class="screen active" aria-label="Setup">
+      <div class="paper-card">
+        <h2>Paste your study notes</h2>
+        <p class="hint">We'll generate practice questions and track where confidence meets reality.</p>
+        <textarea
+          id="notes-input"
+          rows="8"
+          placeholder="Paste lecture notes, textbook excerpts, or anything you're studying..."
+          aria-label="Study notes"
+        ></textarea>
+        <div class="setup-row">
+          <label for="count-input">Number of questions</label>
+          <input type="number" id="count-input" min="3" max="12" value="5" aria-label="Number of questions">
+        </div>
+        <button type="button" id="start-btn" class="btn btn-primary">Start quiz</button>
+        <div id="setup-loading" class="status-message hidden" role="status">Generating questions…</div>
+        <div id="setup-error" class="status-message error hidden" role="alert"></div>
+        <div id="resume-prompt" class="resume-prompt hidden">
+          <p>You have an unfinished session.</p>
+          <button type="button" id="resume-btn" class="btn btn-secondary">Resume session</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question screen -->
+    <section id="question-screen" class="screen" aria-label="Quiz" hidden>
+      <div class="paper-card">
+        <p id="progress-text" class="progress-text" aria-live="polite"></p>
+        <p id="topic-label" class="topic-label"></p>
+        <div id="question-card" class="question-card">
+          <h2 id="question-text"></h2>
+          <div id="options-list" class="options-list" role="radiogroup" aria-label="Answer options"></div>
+        </div>
+        <div id="confidence-section" class="confidence-section">
+          <p class="confidence-label">How confident are you? <span class="confidence-hint">(before you see the answer)</span></p>
+          <div id="confidence-buttons" class="confidence-buttons" role="radiogroup" aria-label="Confidence rating"></div>
+        </div>
+        <button type="button" id="submit-btn" class="btn btn-primary" disabled>Submit answer</button>
+        <div id="feedback-area" class="feedback-area hidden" role="status"></div>
+        <button type="button" id="next-btn" class="btn btn-secondary hidden">Next question</button>
+      </div>
+    </section>
+
+    <!-- Results screen -->
+    <section id="results-screen" class="screen" aria-label="Results" hidden>
+      <div class="paper-card results-card">
+        <h2 id="results-title">Your confidence map</h2>
+        <p id="results-topic" class="topic-label"></p>
+        <div class="chart-wrap">
+          <canvas id="results-chart" aria-label="Confidence vs correctness scatter chart"></canvas>
+        </div>
+        <div id="chart-legend" class="chart-legend"></div>
+        <div id="danger-callout" class="danger-callout"></div>
+        <button type="button" id="new-topic-btn" class="btn btn-primary">New topic</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
